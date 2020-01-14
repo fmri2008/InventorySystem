@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.cell.*?>
+
+<!--<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View_Controller.FXMLMainController">
+    
+</AnchorPane>-->
+<GridPane alignment="CENTER" hgap="10.0" vgap="10.0" xmlns:fx="http://javafx.com/fxml" fx:controller="View_Controller.FXMLMainController">
+    <padding>
+        <Insets top="10" bottom="10" left="10" right="10" />
+    </padding>
+    
+    <Label text="Inventory Management System" style="-fx-font-weight: bold; -fx-font-size: 16" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+    
+    <VBox xmlns:fx="http://javafx.com/fxml" GridPane.columnIndex="0" GridPane.rowIndex="1" alignment="CENTER">
+        <children>
+            <HBox xmlns:fx="http://javafx.com/fxml" spacing="10">
+                <padding>
+                    <Insets top="10" bottom="10" left="10" right="10"/>
+                </padding>
+                <children>
+                    <Label text="Parts" style="-fx-font-weight: bold; -fx-font-size: 16" prefWidth="100" />
+                    <Region prefHeight="20.0" prefWidth="180.0" HBox.hgrow="ALWAYS" />
+                    <Button fx:id="searchParts" text="Search" prefWidth="80" onAction="#searchParts"/>
+                    <TextField fx:id="searchPartsTextField" />
+                </children>
+            </HBox>
+            
+            <TableView fx:id="tableViewParts">
+                <columns>
+                    <TableColumn fx:id="partIDColumn" text="Part ID" prefWidth="100">
+                        <cellValueFactory><PropertyValueFactory property="partID" /></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="partNameColumn" text="Part Name" prefWidth="100">
+                        <cellValueFactory><PropertyValueFactory property="partName" /></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="partInventoryLevelColumn" text="Inventory Level" prefWidth="100">
+                        <cellValueFactory><PropertyValueFactory property="partInventoryLevel" /></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="partPriceColumn" text="Price/Cost per Unit" prefWidth="150">
+                        <cellValueFactory><PropertyValueFactory property="partPrice" /></cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+            
+            <HBox xmlns:fx="http://javafx.com/fxml" spacing="10">
+                <padding>
+                    <Insets top="10" />
+                </padding>
+                <Region prefHeight="20.0" prefWidth="100.0" HBox.hgrow="ALWAYS" />
+                <Button text="Add" prefWidth="80" onAction="#addPart"/>
+                <Button text="Modify" prefWidth="80" onAction="#modifyPart"/>
+                <Button text="Delete" prefWidth="80" onAction="#deletePart"/>
+            </HBox>
+        </children>
+    </VBox>
+    
+    <VBox xmlns:fx="http://javafx.com/fxml" GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <children>
+            <HBox xmlns:fx="http://javafx.com/fxml" spacing="10">
+                <padding>
+                    <Insets top="10" bottom="10" left="10" right="10"/>
+                </padding>
+                <children>
+                    <Label text="Products" style="-fx-font-weight: bold; -fx-font-size: 16" prefWidth="100" />
+                    <Region prefHeight="20.0" prefWidth="180.0" HBox.hgrow="ALWAYS" />
+                    <Button fx:id="searchProducts" text="Search" prefWidth="80" onAction="#searchProducts" />
+                    <TextField fx:id="searchProductsTextField" />
+                </children>
+            </HBox>
+            
+            <TableView fx:id="tableViewProducts">
+                <columns>
+                    <TableColumn fx:id="productIDColumn" text="Product ID" prefWidth="100">
+                        <cellValueFactory><PropertyValueFactory property="productID" /></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="productNameColumn" text="Product Name" prefWidth="100">
+                        <cellValueFactory><PropertyValueFactory property="productName" /></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="productInventoryLevelColumn" text="Inventory Level" prefWidth="100">
+                        <cellValueFactory><PropertyValueFactory property="productInventoryLevel" /></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="productPriceColumn" text="Price/Cost per Unit" prefWidth="150">
+                        <cellValueFactory><PropertyValueFactory property="productPrice" /></cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+            
+            <HBox xmlns:fx="http://javafx.com/fxml" spacing="10">
+                <padding>
+                    <Insets top="10" />
+                </padding>
+                <Region prefHeight="20.0" prefWidth="100.0" HBox.hgrow="ALWAYS" />
+                <Button text="Add" prefWidth="80" onAction="#addProduct"/>
+                <Button text="Modify" prefWidth="80" onAction="#modifyProduct"/>
+                <Button text="Delete" prefWidth="80" onAction="#deleteProduct"/>
+            </HBox>
+        </children>
+    </VBox>
+    
+    <Button onAction="#exit" text="Exit" prefWidth="80" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.halignment="RIGHT" />
+    
+</GridPane>

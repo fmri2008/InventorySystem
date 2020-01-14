@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<!--<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View_Controller.FXMLInhousePartController">
+    
+</AnchorPane>-->
+
+<VBox alignment="CENTER" xmlns:fx="http://javafx.com/fxml" fx:controller="View_Controller.FXMLAddPartController">
+    <padding>
+        <Insets top="10" bottom="10" left="10" right="10"/>
+    </padding>
+    
+    <HBox alignment="CENTER" spacing="50" xmlns:fx="http://javafx.com/fxml">
+        <padding>
+            <Insets bottom="20" />
+        </padding>
+        
+        <Label text="Add part" style="-fx-font-weight: bold; -fx-font-size: 16" prefWidth="100" />
+        <!--<Region prefHeight="20.0" prefWidth="5.0" HBox.hgrow="ALWAYS" />-->
+        <fx:define>
+            <ToggleGroup fx:id="partType" />
+        </fx:define>
+        <RadioButton fx:id="inHouseRadioButton" onAction="#inHouseSelected" text="In-House" toggleGroup="$partType" />
+        <RadioButton fx:id="outsourcedRadioButton" onAction="#outsourcedSelected" text="Outsourced" toggleGroup="$partType" />
+    </HBox>
+    
+    <GridPane alignment="CENTER" hgap="40" vgap="5" xmlns:fx="http://javafx.com/fxml">
+        <Label      GridPane.columnIndex="0" GridPane.rowIndex="0" text="ID" alignment="CENTER_LEFT"/>
+        <TextField  GridPane.columnIndex="1" GridPane.rowIndex="0" promptText="Auto Gen - Disabled" disable="true" prefWidth="150" />
+        <Label      GridPane.columnIndex="0" GridPane.rowIndex="1" text="Name" />
+        <TextField  fx:id="partNameTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" promptText="Part Name" prefWidth="150" />
+        <Label      GridPane.columnIndex="0" GridPane.rowIndex="2" text="Inv" />
+        <TextField  fx:id="partInvTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" promptText="Inv" prefWidth="150" />
+        <Label      GridPane.columnIndex="0" GridPane.rowIndex="3" text="Price/Cost" />
+        <TextField  fx:id="partPriceTextField" GridPane.columnIndex="1" GridPane.rowIndex="3" promptText="Price/Cost" prefWidth="150" />
+    </GridPane>
+    
+    <GridPane alignment="CENTER" hgap="20" vgap="5" xmlns:fx="http://javafx.com/fxml">
+        <padding>
+            <Insets top="10" bottom="10" />
+        </padding>
+        <Label      GridPane.columnIndex="0" GridPane.rowIndex="0" text="Max" />
+        <TextField  fx:id="partMaxTextField" GridPane.columnIndex="1" GridPane.rowIndex="0" promptText="Max" prefWidth="70" />
+        <Label      GridPane.columnIndex="2" GridPane.rowIndex="0" text="Min" />
+        <TextField  fx:id="partMinTextField" GridPane.columnIndex="3" GridPane.rowIndex="0" promptText="Max" prefWidth="70" />
+    </GridPane>
+    
+    <GridPane fx:id="inHouseOrOutsourcedPane" alignment="CENTER" hgap="10" vgap="5" xmlns:fx="http://javafx.com/fxml">
+        <Label fx:id="inHouseOrOutsourcedLabel" text="Machine ID" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField  fx:id="inHouseOrOutsourcedTextField" GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="150" />
+    </GridPane>
+    
+    <HBox xmlns:fx="http://javafx.com/fxml" spacing="20" alignment="CENTER">
+        <padding>
+            <Insets top="40" />
+        </padding>
+        <!--<Region prefHeight="20.0" prefWidth="10.0" HBox.hgrow="ALWAYS" />-->
+        <Button text="Save" onAction="#save"></Button>
+        <Button text="Cancel" onAction="#cancel"></Button>
+    </HBox>
+</VBox>

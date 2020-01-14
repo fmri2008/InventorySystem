@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.cell.*?>
+
+<HBox alignment="CENTER" spacing="40" xmlns:fx="http://javafx.com/fxml" fx:controller="View_Controller.FXMLAddProductController">
+    <VBox alignment="CENTER" xmlns:fx="http://javafx.com/fxml">
+        <padding>
+            <Insets top="10" bottom="10" left="10" right="10"/>
+        </padding>
+
+        <Label text="Add Product" style="-fx-font-weight: bold; -fx-font-size: 16" prefWidth="130" />
+        <Region prefHeight="20.0" prefWidth="10.0" HBox.hgrow="ALWAYS" />
+
+        <GridPane alignment="CENTER" hgap="40" vgap="5" xmlns:fx="http://javafx.com/fxml">
+            <Label      GridPane.columnIndex="0" GridPane.rowIndex="0" text="ID" alignment="CENTER_LEFT"/>
+            <TextField  GridPane.columnIndex="1" GridPane.rowIndex="0" disable="true" promptText="Auto Gen - Disabled" prefWidth="150" />
+            <Label      GridPane.columnIndex="0" GridPane.rowIndex="1" text="Name" />
+            <TextField  fx:id="productNameTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" promptText="Product Name" prefWidth="150" />
+            <Label      GridPane.columnIndex="0" GridPane.rowIndex="2" text="Inv" />
+            <TextField  fx:id="productInvTextField"  GridPane.columnIndex="1" GridPane.rowIndex="2" promptText="Inv" prefWidth="150" />
+            <Label      GridPane.columnIndex="0" GridPane.rowIndex="3" text="Price/Cost" />
+            <TextField  fx:id="productPriceTextField" GridPane.columnIndex="1" GridPane.rowIndex="3" promptText="Price/Cost" prefWidth="150" />
+        </GridPane>
+
+        <GridPane alignment="CENTER" hgap="20" vgap="5" xmlns:fx="http://javafx.com/fxml">
+            <padding>
+                <Insets top="10" bottom="10" />
+            </padding>
+            <Label      GridPane.columnIndex="0" GridPane.rowIndex="0" text="Max" />
+            <TextField  fx:id="productMaxTextField" GridPane.columnIndex="1" GridPane.rowIndex="0" promptText="Max" prefWidth="70" />
+            <Label      GridPane.columnIndex="2" GridPane.rowIndex="0" text="Min" />
+            <TextField  fx:id="productMinTextField" GridPane.columnIndex="3" GridPane.rowIndex="0" promptText="Min" prefWidth="70" />
+        </GridPane>
+    </VBox>
+    
+    <VBox alignment="CENTER" spacing="20" xmlns:fx="http://javafx.com/fxml">
+        <padding>
+            <Insets top="20" bottom="20" left="20" right="20" />
+        </padding>
+        <HBox alignment="CENTER" spacing="20">
+            <Button fx:id="searchButton" onAction="#search" text="Search" prefWidth="80"/>
+            <TextField fx:id="searchTextField" prefWidth="100" />
+        </HBox>
+        <TableView fx:id="tableViewAllParts">
+            <columns>
+                <TableColumn fx:id="allPartIDColumn" text="Part ID" prefWidth="100">
+                    <cellValueFactory><PropertyValueFactory property="partID" /></cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="allPartNameColumn" text="Part Name" prefWidth="100">
+                    <cellValueFactory><PropertyValueFactory property="partName" /></cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="allPartInventoryLevelColumn" text="Inventory Level" prefWidth="100">
+                    <cellValueFactory><PropertyValueFactory property="partInventoryLevel" /></cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="allPartPriceColumn" text="Price/Cost per Unit" prefWidth="150">
+                    <cellValueFactory><PropertyValueFactory property="partPrice" /></cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+        <HBox alignment="CENTER">
+            <Region prefWidth="90" HBox.hgrow="ALWAYS" />
+            <Button fx:id="addButton" onAction="#add" text="Add" prefWidth="80"/>
+        </HBox>
+        <TableView fx:id="tableViewProductParts">
+            <columns>
+                <TableColumn fx:id="productPartIDColumn" text="Part ID" prefWidth="100">
+                    <cellValueFactory><PropertyValueFactory property="partID" /></cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="productPartNameColumn" text="Part Name" prefWidth="100">
+                    <cellValueFactory><PropertyValueFactory property="partName" /></cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="productPartInventoryLevelColumn" text="Inventory Level" prefWidth="100">
+                    <cellValueFactory><PropertyValueFactory property="partInventoryLevel" /></cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="productPartPriceColumn" text="Price/Cost per Unit" prefWidth="150">
+                    <cellValueFactory><PropertyValueFactory property="partPrice" /></cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+        <HBox alignment="CENTER">
+            <Region prefWidth="90" HBox.hgrow="ALWAYS" />
+            <Button fx:id="deleteButton" onAction="#delete" text="Delete" prefWidth="80"/>
+        </HBox>
+        <HBox alignment="CENTER" spacing="20">
+            <Region prefWidth="90" HBox.hgrow="ALWAYS" />
+            <Button fx:id="saveButton" onAction="#save" text="Save" prefWidth="80"/>
+            <Button fx:id="cancelButton" onAction="#cancel" text="Cancel" prefWidth="80"/>
+        </HBox>
+    </VBox>
+</HBox>
